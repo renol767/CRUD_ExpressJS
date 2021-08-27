@@ -1,0 +1,60 @@
+html
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title Data
+        link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js')
+        script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+    body
+        script(src='https://code.jquery.com/jquery-3.5.1.js')
+        script(src='https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js')
+        link(rel='stylesheet', href='https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css')
+        script.
+            $(document).ready(function() {
+                $('#pickle').DataTable({
+                    columnDefs: [ {
+                        targets: [ 0 ],
+                        orderData: [ 0, 1 ]
+                    }, {
+                        targets: [ 1 ],
+                        orderData: [ 1, 0 ]
+                    }, {
+                        targets: [ 4 ],
+                        orderData: [ 4, 0 ]
+                    } ]
+                });
+            });
+        .container
+            .jumbotron 
+                h1 Data
+            a.btn.btn-success( href="http://localhost:3000/data/create" ) Tambah Data
+            br
+            br
+            table#pickle.table.table-hover.table-striped.table-bordered
+                thead
+                    tr
+                        td No
+                        td Name
+                        td Email
+                        td City
+                        td Aksi
+                for row, index in data
+                    tr
+                        td #{index + 1}
+                        td #{row.name}
+                        td #{row.email}
+                        td #{row.city}
+                        td
+                            form(action=`/data/${row.id}?_method=DELETE`, method="post")
+                                button.btn.btn-danger(type='submit') HAPUS
+                                p 
+                                a.btn.btn-warning(href=`/data/${row.id}/edit` role='button') UBAH
+
+
+            
+            br
+            br
+            br
+                                

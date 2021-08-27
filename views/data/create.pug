@@ -1,0 +1,36 @@
+html
+    head
+        title Tambah Data
+        link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js')
+        script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+    body
+        .container
+            .row
+                .col-8.col-md-6
+                br
+                h1 Buat Data
+                br
+                a.btn.btn-danger(href='http://localhost:3000/data' role='button') Kembali
+                br
+                form(action='/data' method='POST')
+                    br
+                    .mb-3
+                        label.form-label(for='exampleInputEmail1') Name
+                        .mr-10
+                        input#exampleInputEmail1.form-control(type='text' name='name')
+                    br
+                    .mb-3
+                        label.form-label(for='exampleInputEmail1') Email
+                        .mr-10
+                        input#exampleInputEmail1.form-control(type='text' name='email')
+                    br
+                    .mb-3
+                        label.form-label(for='exampleInputEmail1') City
+                        .mr-10
+                        input#exampleInputEmail1.form-control(type='text' name='city')    
+                    br
+                    br
+                    input.btn.btn-primary(type='submit' value='Simpan') 
+
+                .col-8.col-md-6

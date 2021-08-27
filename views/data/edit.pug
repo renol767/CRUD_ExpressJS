@@ -1,0 +1,36 @@
+html
+    head
+        link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js')
+        script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+        title Ubah Data
+    body
+        .container
+            .row
+                .col-8.col-md-6
+                br
+                h1 Edit Data
+                br
+                a.btn.btn-danger(href='http://localhost:3000/data' role='button') Kembali
+                br
+                form(action=`/data/${data.id}?_method=PUT` method='POST')
+                    br
+                    .mb-3
+                        label.form-label(for='exampleInputEmail1') Name
+                        .mr-10
+                        input#exampleInputEmail1.form-control(type='text' name='name' value=data.name)
+                    br
+                    .mb-3
+                        label.form-label(for='exampleInputEmail1') Email
+                        .mr-10
+                        input#exampleInputEmail1.form-control(type='text' name='email' value=data.email)
+                    br
+                    .mb-3
+                        label.form-label(for='exampleInputEmail1') City
+                        .mr-10
+                        input#exampleInputEmail1.form-control(type='text' name='city' value=data.city)    
+                    br
+                    br
+                    input.btn.btn-primary(type='submit' value='Simpan')
+                .col-8.col-md-6
+        
